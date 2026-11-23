@@ -1,21 +1,30 @@
 # Dobot Hand Control
-
-English | [ภาษาไทย](README.th.md)
-
-A Raspberry Pi robotics prototype that maps webcam hand gestures to Dobot arm movement. MediaPipe detects hand landmarks, OpenCV handles camera input, and PyDobot sends commands over a serial connection.
-
-## Where to start
-
-| File | Purpose |
-| --- | --- |
-| [`track.py`](track.py) | Camera input and gesture-to-movement mapping |
-| [`dobot.py`](dobot.py) | Serial connection and a manual control menu |
-| [`requirement.txt`](requirement.txt) | Python dependencies |
-
-The code targets Linux with a webcam and a compatible Dobot connected over serial. Use Python 3.10 or newer (the manual menu uses `match`) and a virtual environment: `python -m pip install -r requirement.txt`. Review `serial_port` in `dobot.py` for your setup. The manual entry point is `python dobot.py`; the webcam entry point is `python track.py`.
-
-## Hardware precautions
-
-Connecting commands the arm to move, and frequent gesture events can overwhelm the controller. Clear the workspace, keep people out of reach of the arm, and confirm you can stop motion before testing either entry point. This is a prototype, not a safety-rated control system. Contributions that make gesture input more predictable, such as debouncing, are welcome.
-
-<!-- Maintainers: Update the English README first, then mirror the change in README.th.md. -->
+## Detail Project
+  project dobot control on respberry pi 
+  implement hand tracking to control dobot movement  
+## About File
+ ```
+  dobot.py         | dobot control command
+  track.py         | hand tracking mapping sign
+  requirement.txt  | packing require library file
+ ```
+## How to use
+ ``` 
+  control dobot support only linux and mac os
+  1. create python virtual environment 
+    : python3 -m venv vnev
+  2. activate virtual environment
+    : source venv/bin/activate
+  3. install library from requirement.txt
+    : pip3 install -r requirement.txt
+  4. check connected ports and replace port name at 
+    : line 14 serial_port = 'replace ports'
+      example serial_port = '/dev/ttyUSB0'
+  5. test run this control program doboy.py
+     and test control dobot movement.
+    ** if program has work?
+  6. use program track.py for hand control
+ ```
+## Problem
+  hand tracking has many request movement 
+  make dobot crash
